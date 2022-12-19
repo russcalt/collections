@@ -1,0 +1,8 @@
+int summ = 0;
+        
+        for( PersonalAccount i : myBank) {
+            summ += i.getBalance();
+            double avg = summ / (myBank.size() * 1.0);
+            
+            System.out.println("the average is " + avg);
+        }
