@@ -6,3 +6,16 @@ int summ = 0;
             
             System.out.println("the average is " + avg);
         }
+
+static public void getRid(int amt){
+        int indx = 0; 
+        
+        while( indx < myBank.size() ) {
+            if(myBank.get(indx).getBalance() < amt){
+                myBank.remove(indx);
+            }
+            else{
+                indx++;
+            }
+        }
+    }
