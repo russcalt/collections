@@ -1,0 +1,82 @@
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.TreeSet;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class ExamTwo
+{
+    public static void main(String[] args){
+    //create array
+    Integer[] myNums = new Integer[32];
+    //get random numbers and put into array -- print them
+    System.out.println("Integers from the Array: ");
+    for(int i = 0; i < myNums.length; i++){
+        int num = (int) (Math.random() * 518) + 18;
+        myNums[i] = num; 
+        System.out.print(" " + num );
+    }
+    //create linked list
+    //populate list with integers from array -- print 
+    LinkedList<Integer> myList = new LinkedList(Arrays.asList(myNums));
+    System.out.println("\nIntegers from Linked List: ");
+    for(Integer i : myList){
+        System.out.print(" " + i);
+    }
+    //sort the linked list -- print 
+    System.out.println("\nIntegers after sort:");
+    Collections.sort(myList);
+    for(Integer i : myList){
+        System.out.print(" " + i);
+    }
+    //reverse order -- print
+    System.out.println("\nIntegers in reverse order: ");
+    Collections.reverse(myList);
+    Iterator<Integer> itrReverse = myList.iterator();
+    while ( itrReverse.hasNext() ){
+        Integer i = itrReverse.next();  
+        System.out.print(" " + i);
+    }
+    //print evens using iterator from my list
+    Iterator<Integer> itrEven = myList.iterator();
+    System.out.println("\nEven Values:");
+    while ( itrEven.hasNext() ){
+        Integer i = itrEven.next();
+        if( i % 2 ==0){
+            System.out.print(" " + i);
+        }
+    }
+    //create tree set
+    TreeSet<Integer> myTree = new TreeSet<Integer>(myList);
+    //print using iterator
+    System.out.println("\nIntegers from Tree Set: ");
+    Iterator<Integer> itrTree = myTree.iterator();
+    while(itrTree.hasNext() ){
+        Integer i = itrTree.next();
+        System.out.print(" " + i);
+    }
+    //print odds using iterator from my tree
+    Iterator<Integer> itrOdd = myTree.iterator();
+    System.out.println("\nOdd Values:");
+    while ( itrOdd.hasNext() ){
+        Integer i = itrOdd.next();
+        if( i % 2 != 0){
+            System.out.print(" " + i);
+        }
+    }
+    //print tree set in reverse order 
+    System.out.println("\nTree Set in reverse order:");
+    Iterator<Integer> itrReverseTree = myTree.descendingIterator();
+    while( itrReverseTree.hasNext() ){
+        Integer i = itrReverseTree.next();
+        System.out.print(" " + i);
+    }
+    
+    System.out.println( "\nRPN Expressions: \n" +
+                        " 12 4 + = 16\n" +
+                        " 36 10 2 + / 6 * = 18\n" +
+                        " 30 4 5 3 - + / = 5\n" +
+                        " 4 3 2 1 + - + - + + + + = 16");
+    }
+}
